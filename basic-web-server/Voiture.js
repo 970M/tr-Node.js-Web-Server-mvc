@@ -25,4 +25,15 @@ class Voiture {
         this.#couleur = c;
         this.#immatriculation = i;
     }
+
+    display() {
+        let m = {
+            marque: this.#marque,
+            couleur: this.#couleur,
+            immatriculation: this.#immatriculation,
+        };
+        return m;
+    }
 }
+
+module.exports = Voiture;

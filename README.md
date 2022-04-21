@@ -10,6 +10,12 @@ https://romainlebreton.github.io/ProgWeb-CoteServeur/tutorials/tutorial3.html
 
 Démarrage à l'étape TD3
 
+### Changes log
+
+Initialisation du projet et installation d'express
+
+    npm init
+    npm i -S express 
 
 
 #### Logs / Debug

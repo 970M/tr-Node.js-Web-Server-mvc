@@ -1,25 +1,35 @@
-let fs = require("fs");
-let express = require("express");
-let app = express();
-var n = 0;
+const fs = require("fs");
+const express = require("express");
 
-/// GET
-app.get("/", function (req, res) {
-    n++;
-    console.log("[[ Appel n°", n, "]]: ", req.method);
-    var searchParams1 = new URLSearchParams(req.url);
-    console.log("searchParams1:", searchParams1);
+const app = express();
 
-    var myURL = new URL("http://127.0.0.1:1337/" + req.url);
-    //console.log("myURL:",myURL);
-    fs.readFile("test_server.html", function (err, data) {
-        if (err) {
-            res.writeHead(404);
-            res.end("Erreur lors de l'ouverture du fichier");
-        } else {
-            res.writeHead(200, { "Content-Type": "text/html" });
-            res.write("Salut comment ça va? " + n);
-            res.end(data);
-        }
+// Configuration URL
+const port = 1337;
+const hostname = ""; // "127.0.0.1";
+
+// Definir le moteur de templates à ejs
+app.set("view engine", "ejs");
+// Definir le repertoire des vues .ejs
+app.set("views", "./");
+
+// Home
+app.get("/", (req, res) => {
+    res.send("Hello 970M");
+});
+
+// Page de test pour la class Voiture
+app.get("/test_voiture/", (req, res) => {
+    const Voiture = require("./Voiture");
+    let vehicule = new Voiture("Dacia", "Rouge", "123456789");
+    let message = vehicule.display();
+    res.render("./testVoiture", {
+        marque: message.marque,
+        couleur: message.couleur,
+        immatriculation: message.immatriculation,
     });
+});
+
+app.listen(port, hostname, () => {
+    //console.log(`Example app listening on ${hostname}:${port}`);
+    console.log(`Example app listening on http://localhost:${port}`);
 });
