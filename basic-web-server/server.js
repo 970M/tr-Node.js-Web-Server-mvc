@@ -29,6 +29,18 @@ app.get("/test_voiture/", (req, res) => {
     });
 });
 
+app.get("/lire_voiture/", (req, res) => {
+    const Voiture = require("./Voiture");
+    let rows = Voiture.getAllVoitures();
+    console.log("rows:", rows);
+    let result = [];
+    for (i in rows) {
+        result.push(i.getAtt);
+    }
+    console.log(result);
+    res.render("./lireVoiture", { result: result });
+});
+
 app.listen(port, hostname, () => {
     //console.log(`Example app listening on ${hostname}:${port}`);
     console.log(`Example app listening on http://localhost:${port}`);

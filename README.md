@@ -12,10 +12,17 @@ Démarrage à l'étape TD3
 
 ### Changes log
 
-Initialisation du projet et installation d'express
+Initialisation du projet:
 
     npm init
+
+Installation d'express:
+
     npm i -S express 
+
+Installation du module mysql
+
+    npm i -S mysql
 
 
 #### Logs / Debug
@@ -59,3 +66,4 @@ PRIMARY KEY (`immatriculation`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3
 
 
+INSERT INTO voiture (marque, couleur, immatriculation) VALUES ("Porche", "Rouge", "12344321");

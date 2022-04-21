@@ -1,9 +1,9 @@
 let mysql = require("mysql");
 let connection = mysql.createConnection({
     host: "localhost",
-    user: "phpmyadminGD",
+    user: "970M",
     password: "0000",
-    database: "livreor",
+    database: "covoiturage",
 });
 
 connection.connect();
