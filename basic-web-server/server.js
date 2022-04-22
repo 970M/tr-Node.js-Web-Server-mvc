@@ -7,6 +7,9 @@ const app = express();
 const port = 1337;
 const hostname = ""; // "127.0.0.1";
 
+// Definir le repertoire racine
+//console.log(__dirname);
+//app.use(express.static("/"));
 // Definir le moteur de templates à ejs
 app.set("view engine", "ejs");
 // Definir le repertoire des vues .ejs
@@ -31,14 +34,10 @@ app.get("/test_voiture/", (req, res) => {
 
 app.get("/lire_voiture/", (req, res) => {
     const Voiture = require("./Voiture");
-    let rows = Voiture.getAllVoitures();
-    console.log("rows:", rows);
-    let result = [];
-    for (i in rows) {
-        result.push(i.getAtt);
-    }
-    console.log(result);
-    res.render("./lireVoiture", { result: result });
+    Voiture.getAllVoitures((select) => {
+        console.log("select:", select);
+        res.render("./lireVoiture", { result: select });
+    });
 });
 
 app.listen(port, hostname, () => {

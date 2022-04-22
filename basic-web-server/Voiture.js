@@ -44,17 +44,16 @@ class Voiture {
         return m;
     }
 
-    static getAllVoitures() {
-        connection.query("SELECT * FROM voiture", (err, rows) => {
+    static getAllVoitures(callback) {
+        connection.query("SELECT * FROM voiture", (err, res) => {
             if (err) throw err;
 
-            let results = Object.values(JSON.parse(JSON.stringify(rows)));
-            //console.log("result:", results);
-            let x = results.map(
-                (r) => new Voiture(r.marque, r.couleur, r.immatriculation)
+            let rows = Object.values(JSON.parse(JSON.stringify(res)));
+            let x = rows.map(
+                (row) =>
+                    new Voiture(row.marque, row.couleur, row.immatriculation)
             );
-            console.log("x:", x);
-            return x;
+            callback(x);
         });
     }
 }
