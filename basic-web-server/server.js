@@ -10,6 +10,7 @@ const hostname = ""; // "127.0.0.1";
 // Definir le repertoire racine
 //console.log(__dirname);
 //app.use(express.static("/"));
+
 // Definir le moteur de templates à ejs
 app.set("view engine", "ejs");
 // Definir le repertoire des vues .ejs

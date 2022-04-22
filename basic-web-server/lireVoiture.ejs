@@ -15,19 +15,19 @@
         <% for (res of result) { %>
 
             <div class="vehicule">
-
-                <div class="content"></div>
-                <div class="marque">
-                    <p>Marque: <%= res.marque %>
-                    </p>
-                </div>
-                <div class="couleur">
-                    <p>Marque: <%= res.couleur %>
-                    </p>
-                </div>
-                <div class="immatriculation">
-                    <p>Marque: <%= res.immatriculation %>
-                    </p>
+                <div class="content">
+                    <div class="marque">
+                        <p>Marque: <%= res.getMarque() %>
+                        </p>
+                    </div>
+                    <div class="couleur">
+                        <p>Couleur: <%= res.getCouleur() %>
+                        </p>
+                    </div>
+                    <div class="immatriculation">
+                        <p>Immatriculation: <%= res.getImmatriculation() %>
+                        </p>
+                    </div>
                 </div>
             </div>
     </div>

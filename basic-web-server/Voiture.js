@@ -9,8 +9,8 @@ class Voiture {
 
     // Getters
     getMarque = () => this.#marque;
-    getcouleur = () => this.#couleur;
-    getimmatriculation = () => this.#immatriculation;
+    getCouleur = () => this.#couleur;
+    getImmatriculation = () => this.#immatriculation;
     getAtt = () => {
         return {
             marque: this.#marque,
