@@ -29,6 +29,20 @@ Installation du module mysql
 
 ##### Tables SQL :
 
+CREATE TABLE `utilisateur` (
+`nom` varchar(32) NOT NULL,
+`prenom` varchar(32) NOT NULL,
+`login` varchar(32) NOT NULL,
+PRIMARY KEY (`login`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3
+
+CREATE TABLE `voiture` (
+`immatriculation` varchar(8) NOT NULL,
+`marque` varchar(25) NOT NULL,
+`couleur` varchar(12) NOT NULL,
+PRIMARY KEY (`immatriculation`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3
+
 CREATE TABLE `passager` (
 `trajet_id` int NOT NULL,
 `utilisateur_login` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -51,19 +65,7 @@ KEY `trajet_ibfk_1` (`conducteur_login`),
 CONSTRAINT `trajet_ibfk_1` FOREIGN KEY (`conducteur_login`) REFERENCES `utilisateur` (`login`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3
 
-CREATE TABLE `utilisateur` (
-`nom` varchar(32) NOT NULL,
-`prenom` varchar(32) NOT NULL,
-`login` varchar(32) NOT NULL,
-PRIMARY KEY (`login`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3
 
-CREATE TABLE `voiture` (
-`immatriculation` varchar(8) NOT NULL,
-`marque` varchar(25) NOT NULL,
-`couleur` varchar(12) NOT NULL,
-PRIMARY KEY (`immatriculation`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3
 
 
 INSERT INTO voiture (marque, couleur, immatriculation) VALUES ("Porche", "Rouge", "12344321");

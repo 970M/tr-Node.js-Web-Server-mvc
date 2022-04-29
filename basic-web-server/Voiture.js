@@ -56,6 +56,34 @@ class Voiture {
             callback(x);
         });
     }
+
+    static getVoitureByImmat(immat, callback) {
+        let sql = "SELECT * from voiture WHERE immatriculation = ?";
+        connection.query(sql, [immat], (err, res) => {
+            if (err) throw err;
+
+            let rows = Object.values(JSON.parse(JSON.stringify(res)));
+            let x = rows.map(
+                (row) =>
+                    new Voiture(row.marque, row.couleur, row.immatriculation)
+            );
+            callback(x);
+        });
+    }
+
+    save(callback) {
+        let sql =
+            "INSERT INTO voiture (marque, couleur, immatriculation) VALUES (?, ?, ?)";
+        connection.query(
+            sql,
+            [this.#marque, this.#couleur, this.#immatriculation],
+            (err, res) => {
+                if (err) throw err;
+                console.log("Number of records inserted: " + res.affectedRows);
+                callback("Number of records inserted: " + res.affectedRows);
+            }
+        );
+    }
 }
 
 module.exports = Voiture;
