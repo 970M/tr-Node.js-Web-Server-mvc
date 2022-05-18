@@ -1,14 +1,14 @@
 {
-	"folders": [
+    "folders": [
 		{
 			"path": "."
 		},
 		{
-			"path": "../tr-Php-Web-Server-mvc"
+			"path": "../NODE.js-Grafikart"
 		},
 		{
-			"path": "../../../../home/gyom/Bureau/#Dev/NODE.js-Grafikart"
+			"path": "../../../../../var/www/private/tr-Php-Web-Server-mvc"
 		}
 	],
-	"settings": {}
+    "settings": {}
 }

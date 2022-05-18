@@ -1,0 +1,38 @@
+<%- include("header") -%>
+
+    <form method="post" action="creer_voiture">
+
+
+        <% if (message) { %>
+            <div class="message-box">
+                <%= message %>
+
+            </div>
+
+            <% } %>
+                </div>
+
+                <fieldset>
+                    <legend>Mon formulaire :</legend>
+                    <div class="container">
+                        <div>
+                            <label for="immat_id">Immatriculation</label> :
+                            <input type="text" placeholder="256AB34" name="immatriculation" id="immat_id" required />
+                        </div>
+                        <div>
+                            <label for="marque_id">Marque</label> :
+                            <input type="text" placeholder="Renault" name="marque" id="marque_id" required />
+                        </div>
+                        <div>
+                            <label for="couleur_id">Couleur</label> :
+                            <input type="text" placeholder="Bleu" name="couleur" id="couleur_id" required />
+                        </div>
+                    </div>
+                    <p>
+                        <input type="submit" value="Envoyer" />
+                    </p>
+                </fieldset>
+    </form>
+
+
+    <%- include("footer") -%>

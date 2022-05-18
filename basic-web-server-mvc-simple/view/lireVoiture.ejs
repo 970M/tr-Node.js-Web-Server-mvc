@@ -1,0 +1,30 @@
+<%- include("header") -%>
+
+    <div class=result-box>
+
+        <% for (res of result) { %>
+
+            <div class="vehicule">
+                <div class="content">
+                    <div class="marque">
+                        <p>Marque: <%= res.getMarque() %>
+                        </p>
+                    </div>
+                    <div class="couleur">
+                        <p>Couleur: <%= res.getCouleur() %>
+                        </p>
+                    </div>
+                    <div class="immatriculation">
+                        <p>Immatriculation: <%= res.getImmatriculation() %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <% } %>
+
+
+        </div>
+
+        <%- include("footer") -%>
